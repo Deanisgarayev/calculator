@@ -21,6 +21,7 @@ public class CalculationController {
     public String WelcomeToCalculator () {
         return "Welcome to calculator";
     }
+
     @GetMapping("/plus")
         public Integer plus (@RequestParam Integer num1, @RequestParam Integer num2){
             return calculationService.plus(num1, num2);
