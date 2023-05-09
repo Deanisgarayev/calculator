@@ -24,6 +24,7 @@ public class CalculationServiceImpl implements CalculationService {
 
     @Override
     public Integer divide(Integer num1, Integer num2) {
+
         return num1 / num2;
     }
 }
