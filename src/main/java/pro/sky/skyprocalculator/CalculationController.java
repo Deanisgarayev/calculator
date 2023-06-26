@@ -46,9 +46,6 @@ public class CalculationController {
 
     @GetMapping("/divide")
     public String divide(@RequestParam Integer num1, @RequestParam Integer num2) {
-        if (num1 == 0 || num2 == 0) {
-            throw new IllegalArgumentException("We can not divide zero");
-        }
         int result = calculationService.divide(num1, num2);
         return num1 + "/" + num2 + "=" + result;
     }

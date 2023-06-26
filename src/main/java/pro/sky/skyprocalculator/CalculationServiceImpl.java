@@ -1,4 +1,4 @@
-package pro.sky.skyprocalculator.impl;
+package pro.sky.skyprocalculator;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +26,9 @@ public class CalculationServiceImpl implements CalculationService {
 
     @Override
     public Integer divide(Integer num1, Integer num2) {
+        if (num1 == 0 || num2 == 0) {
+            throw new ZeroException("We can not divide zero");
+        }
         return num1 / num2;
     }
 }
