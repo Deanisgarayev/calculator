@@ -27,7 +27,7 @@ public class CalculationServiceImpl implements CalculationService {
     @Override
     public Integer divide(Integer num1, Integer num2) {
         if (num1 == 0 || num2 == 0) {
-            throw new ZeroException("We can not divide zero");
+            throw new IllegalArgumentException("We can not divide zero");
         }
         return num1 / num2;
     }
