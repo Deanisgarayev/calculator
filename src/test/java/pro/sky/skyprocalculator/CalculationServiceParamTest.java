@@ -63,5 +63,4 @@ public class CalculationServiceParamTest {
                 Arguments.of(4, 2, 2)
         );
     }
-
 }
