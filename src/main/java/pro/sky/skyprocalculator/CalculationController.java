@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+
 @RequestMapping("/calculator")
 public class CalculationController {
     private final CalculationService calculationService;
@@ -18,26 +19,36 @@ public class CalculationController {
     }
 
     @GetMapping("/welcome")
-    public String WelcomeToCalculator () {
+    public String WelcomeToCalculator() {
         return "Welcome to calculator";
     }
-    @GetMapping("/plus")
-        public Integer plus (@RequestParam Integer num1, @RequestParam Integer num2){
-            return calculationService.plus(num1, num2);
 
-    }    @GetMapping("/minus")
-        public Integer minus (@RequestParam Integer num1, @RequestParam Integer num2){
-            return calculationService.minus(num1, num2);
+    @GetMapping("/plus")
+    public String plus(@RequestParam Integer num1, @RequestParam Integer num2) {
+        int result = calculationService.plus(num1, num2);
+        return num1 + "+" + num2 + "=" + result;
+
+    }
+
+    @GetMapping("/minus")
+    public String minus(@RequestParam Integer num1, @RequestParam Integer num2) {
+        int result = calculationService.minus(num1, num2);
+        return num1 + "-" + num2 + "=" + result;
 
     }
 
     @GetMapping("/multiply")
-        public Integer multiply (@RequestParam Integer num1, @RequestParam Integer num2){
-            return calculationService.multiply(num1, num2);
+    public String multiply(@RequestParam Integer num1, @RequestParam Integer num2) {
+        int result = calculationService.multiply(num1, num2);
+        return num1 + "*" + num2 + "=" + result;
 
-    }    @GetMapping("/divide")
-        public Integer divide (@RequestParam Integer num1, @RequestParam Integer num2){
-            return calculationService.divide(num1, num2);
-        }
     }
+
+    @GetMapping("/divide")
+    public String divide(@RequestParam Integer num1, @RequestParam Integer num2) {
+        int result = calculationService.divide(num1, num2);
+        return num1 + "/" + num2 + "=" + result;
+    }
+}
+
 
